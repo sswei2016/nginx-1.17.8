@@ -1,0 +1,75 @@
+{
+        // See https://go.microsoft.com/fwlink/?LinkId=733558
+        // for the documentation about the tasks.json format
+        "version": "2.0.0",
+        "tasks": [
+            {
+                    "type": "shell",
+                    "label": "ngx_make_clean",
+                    "command": "",
+                    "args": [
+                        "mingw32-make",
+                        "clean"
+                    ],
+                    "options": {
+                            "cwd": "${workspaceRoot}"
+                     },                          
+                    "group": {
+                            "kind": "build",
+                            "isDefault": true
+                     }                    
+            },
+            {
+                    "type": "shell",
+                    "label": "ngx_configure",
+                    "command": "",
+                    "args": [
+                            "./auto/configure",
+                            "--with-cc=gcc",
+                            "--with-cc-opt=-O0",
+                            "--with-debug",
+                            "--prefix=",
+                            "--conf-path=conf/nginx.conf",
+                            "--pid-path=logs/nginx.pid",
+                            "--http-log-path=logs/access.log",
+                            "--error-log-path=logs/error.log",
+                            "--sbin-path=nginx.exe",
+                            "--http-client-body-temp-path=temp/client_body_temp",
+                            "--http-proxy-temp-path=temp/proxy_temp",
+                            "--http-fastcgi-temp-path=temp/fastcgi_temp",
+                            "--http-scgi-temp-path=temp/scgi_temp",
+                            "--http-uwsgi-temp-path=temp/uwsgi_temp",
+                            "--without-http_rewrite_module",
+                            "--without-http_gzip_module",
+                            "--with-select_module",
+                            "--add-module=./src/mytest",
+                            "--add-module=./src/post_handler"
+                    ],
+                    "options": {
+                            "cwd": "${workspaceRoot}"
+                     },                          
+                    "group": {
+                            "kind": "build",
+                            "isDefault": true
+                     },
+                    "dependsOn":["ngx_make_clean"]
+            },
+
+            {
+                    "type": "shell",
+                    "label": "ngx_make",
+                    "command": "",
+                    "args": [
+                        "mingw32-make"
+                    ],
+                    "options": {
+                            "cwd": "${workspaceRoot}"
+                     },                          
+                    "group": {
+                            "kind": "build",
+                            "isDefault": true
+                     },
+                    //"dependsOn":["ngx_configure"]
+            }
+        ]
+    }

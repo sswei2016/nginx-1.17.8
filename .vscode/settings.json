@@ -1,0 +1,31 @@
+{
+    "files.autoGuessEncoding": true,
+    "terminal.integrated.shell.windows": "D:/Program Files/Git/bin/bash.exe",//D:/Program Files/Git/bin/bash.exe
+    "C_Cpp.default.compilerPath": "D:/mingw32/bin/gcc.exe",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.cppStandard": "c++17",
+
+    "C_Cpp.default.browse.path": [
+        "D:/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/**",
+        "${workspaceFolder}",
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/src/core",
+        "${workspaceFolder}/src/os/unix",
+        "${workspaceFolder}/objs",
+    ],
+
+    "C_Cpp.default.includePath":
+    [
+        "D:/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/**",
+        "D:/mingw32/**",
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/src/core",
+        "${workspaceFolder}/src/os/unix",
+        "${workspaceFolder}/objs",
+    ],
+    "files.associations": {
+        "typeinfo": "cpp"
+    }
+
+}

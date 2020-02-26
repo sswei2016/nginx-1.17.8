@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "D:/mingw32",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/src/core",
+                "${workspaceFolder}/src/os/unix",
+                "${workspaceFolder}/objs"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "D:/mingw32/bin/gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64"            
+        }
+    ],
+    "version": 4
+}
