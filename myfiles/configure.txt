@@ -54,4 +54,7 @@ location /parrot {
 --without-http_rewrite_module \
 --without-http_gzip_module \
 --with-select_module \
---add-dynamic-modulee=./src/mytest
+--add-dynamic-module=./src/mytest
+
+make:
+mingw32-make modules
