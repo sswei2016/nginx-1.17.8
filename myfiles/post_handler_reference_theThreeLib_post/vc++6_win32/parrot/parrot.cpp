@@ -54,7 +54,11 @@ extern "C" PARROT_API post_handler_worker_t parrot = {
 PARROT_API void * parrot_init(const char* conf_file) {
     void *h = malloc(sizeof(parrot_handler));
     memset(h, 0, sizeof(parrot_handler));
+	fprintf(stderr, "parrot init: %s\n", conf_file);
+
     ((parrot_handler*)h)->times = strlen(conf_file);
+	fprintf(stderr, "parrot init: %d\n", ((parrot_handler*)h)->times);
+
     return h;
 }
 
