@@ -1,0 +1,57 @@
+nginx.conf 配置项
+
+#wss start 20200226
+location /mytest {
+	mytest;
+}
+
+client_max_body_size 10M;
+client_body_buffer_size 10M;
+
+location /parrot {
+	post_handler parrot 5;
+}
+#wss end
+		
+		
+编译nginx用的配置指令	
+./auto/configure \
+--with-cc=gcc \
+--with-cc-opt=-O0 \
+--with-debug \
+--prefix= \
+--conf-path=conf/nginx.conf \
+--pid-path=logs/nginx.pid \
+--http-log-path=logs/access.log \
+--error-log-path=logs/error.log \
+--sbin-path=nginx.exe \
+--http-client-body-temp-path=temp/client_body_temp \
+--http-proxy-temp-path=temp/proxy_temp \
+--http-fastcgi-temp-path=temp/fastcgi_temp  \
+--http-scgi-temp-path=temp/scgi_temp \
+--http-uwsgi-temp-path=temp/uwsgi_temp \
+--without-http_rewrite_module \
+--without-http_gzip_module \
+--with-select_module
+
+
+编译动态模块用的
+./auto/configure \
+--with-cc=gcc \
+--with-cc-opt=-O0 \
+--with-debug \
+--prefix= \
+--conf-path=conf/nginx.conf \
+--pid-path=logs/nginx.pid \
+--http-log-path=logs/access.log \
+--error-log-path=logs/error.log \
+--sbin-path=nginx.exe \
+--http-client-body-temp-path=temp/client_body_temp \
+--http-proxy-temp-path=temp/proxy_temp \
+--http-fastcgi-temp-path=temp/fastcgi_temp  \
+--http-scgi-temp-path=temp/scgi_temp \
+--http-uwsgi-temp-path=temp/uwsgi_temp \
+--without-http_rewrite_module \
+--without-http_gzip_module \
+--with-select_module \
+--add-dynamic-modulee=./src/mytest
